@@ -1,8 +1,12 @@
 const LichessApi = require("./LichessApi");
 
 const RobotUser = require("./RobotUser");
-const PatzerPlayer = require("./bots/PatzerPlayer");
-const AntiPatzerPlayer = require("./bots/AntiPatzerPlayer");
+const AjetZero = require("./bots/AjetZero");
+
+//const PatzerPlayer = require("./bots/PatzerPlayer");
+//const AntiPatzerPlayer = require("./bots/AntiPatzerPlayer");
+
+require("dotenv").config();
 
 
 /**
@@ -29,19 +33,22 @@ async function startBot(token, player) {
 }
 
 async function begin() {
-  var links = "<h1>Challenge:</h1><br/>";
+  //var links = "<h1>Challenge:</h1><br/>";
 
-  links += await startBot(process.env.API_TOKEN, new PatzerPlayer());
-  links += await startBot(process.env.API_TOKEN_SWARM, new AntiPatzerPlayer());
+  //links += await startBot(process.env.API_TOKEN, new PatzerPlayer());
+  //links += await startBot(process.env.API_TOKEN_SWARM, new AntiPatzerPlayer());
+  
+  //links += await startBot(process.env.API_TOKEN, new AjetZero());
+  await startBot(process.env.API_TOKEN, new AjetZero());
 
   // heroku wakeup server (not necessary otherwise)
 
-  const express = require("express");
-  const PORT = process.env.PORT || 5000;
+  //const express = require("express");
+  //const PORT = process.env.PORT || 5000;
 
-  express()
-    .get("/", (req, res) => res.send(links))
-    .listen(PORT, () => console.log(`Wake up server listening on ${PORT}`));
+  //express()
+    //.get("/", (req, res) => res.send(links))
+    //.listen(PORT, () => console.log(`Wake up server listening on ${PORT}`));
 }
 
 begin();
