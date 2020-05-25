@@ -26,6 +26,10 @@ class LichessApi {
     return this.post(`api/challenge/${challengeId}/decline`);
   }
 
+  challengeStockfish(level){
+	return this.post('api/challenge/ai', {level})
+  }
+
   upgrade() {
     return this.post("api/bot/accounts/upgrade");
   }
