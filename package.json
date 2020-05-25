@@ -5,7 +5,10 @@
   "main": "src/Main.js",
   "scripts": {
     "test": "nyc tap test/*",
-    "start": "node src/Main.js",
+	"start": "node src/Main.js",
+	"genEasyModel": "node src/model/genEasyModel.js",
+	"genModel": "node src/model/generateModel.js",
+	"loadModel": "node src/model/loadModel.js",
     "tournament": "node src/tournament/Main.js",
     "build": "webpack -p",
     "deps": "npx yarn-check --skip-unused"
